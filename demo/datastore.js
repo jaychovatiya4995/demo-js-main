@@ -104,19 +104,21 @@ function _delete(){
 function add(){
     console.log('Add function');
     var current_time  = new Date().getTime();
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
+    var name = document.getElementsByName('username')[0].value;
+    var email = document.getElementsByName('useremail')[0].value;
     var brithdate = document.getElementById('txtDate').value;
     var gender =  $("input[type='radio'][name='gender']:checked").val();
     // if (document.getElementById('gender').checked) {
     //     gender = document.getElementById('gender').value;
     //   } 
-    var hobby = document.getElementById('')
-    // var hobby = document.getElementsByClassName('.form-check-inline:checked').value;
-    // var hobby = document.querySelectorAll('input[name=hobby]:checked').val();
-    var country = document.getElementById('countySel').value;
-    var state = document.getElementById('stateSel').value;
-    var city = document.getElementById('districtSel').value;
+
+    // var hobby = document.getElementsByName('hobby').values;
+    var hobby = document.querySelectorAll('.form-check-input:checked');
+    console.log(hobby)
+    // var hobby = document.querySelectorAll('input[name=hobby]:checked').val();   
+    var country = document.getElementsByName('country')[0].value;
+    var state = document.getElementsByName('state')[0].value;
+    var city = document.getElementsByName('cities')[0].value;
 
     console.log(current_time,name,email,brithdate,gender,hobby,country,state,city)
 }
