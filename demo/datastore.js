@@ -106,15 +106,17 @@ function add(){
     var current_time  = new Date().getTime();
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
-    var brithdate = document.getElementById('txtDate');
+    var brithdate = document.getElementById('txtDate').value;
     var gender =  $("input[type='radio'][name='gender']:checked").val();
     // if (document.getElementById('gender').checked) {
     //     gender = document.getElementById('gender').value;
     //   } 
-    var hobby = document.getElementsByClassName('.messageCheckbox:checked').value;
+    var hobby = document.getElementById('')
+    // var hobby = document.getElementsByClassName('.form-check-inline:checked').value;
+    // var hobby = document.querySelectorAll('input[name=hobby]:checked').val();
     var country = document.getElementById('countySel').value;
     var state = document.getElementById('stateSel').value;
     var city = document.getElementById('districtSel').value;
 
-    // console.log(current_time,name,email,brithdate,gender,hobby,country,state,city)
+    console.log(current_time,name,email,brithdate,gender,hobby,country,state,city)
 }

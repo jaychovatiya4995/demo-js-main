@@ -18,26 +18,26 @@
     <form class="border mt-4" id="send" >
         <div class="form-group input-control">
             <label for="name">Your Name</label>
-            <input type="text" name="username" class="form-control" id="name" onblur="check_name()" required>
+            <input type="text" name="username" class="form-control" id='name' onblur="check_name()">
             <div class="error"></div>
         </div>
 
         <div class="form-group input-control">
             <label for="email">Email address</label>
-            <input type="email" name="useremail" class="form-control" id="email" onblur="check_email()" required>
+            <input type="email" name="useremail" class="form-control" id="email" onblur="check_email()">
             <div class="error"></div>
         </div>
 
         <div class="input-control">
             <label for="birthday">Birthdate</label>
-            <input type="date" id="txtDate" name="birthday" onblur="check_birthdate()" required>
+            <input type="date" id="txtDate" name="birthday" onblur="check_birthdate()">
             <div class="error"></div>
         </div>
 
         <div>
             <label for="gender">Gender</label>
             <div class="form-check form-check-inline">  
-                <input class="form-check-input" type="radio" name="gender" id="male" value="male" onblur="check_gender()" required>
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male" onblur="check_gender()">
                 <label class="form-check-label" for="male">Male</label>
               </div>
               <div class="form-check form-check-inline">
@@ -73,43 +73,42 @@
         </div>
 
         <div>
-            <div id="countryWrap">
+            <div>
                 <label class="form-check-label" for="contries">Country</label>
-                <select id="countySel" name="country" size="1" onblur="check_address()" required> 
+                <select id="countySel" name="country" size="1" onblur="check_country()"> 
                 <option value="" selected="selected">Select Country</option>
                 </select>
+                <div id="country" class="input-control"> 
+                    <div class="error"></div>
+                </div>
             </div>
-            <div class="address input-control">
-                <div class="errol"></div>
-            </div>
-            
-
-            <div id="countryWrap">
+                                 
+            <div>
                 <label class="form-check-label" for="state">State</label>
-                <select id="stateSel" name="state" size="1" onblur="check_address()" required>
+                <select id="stateSel" name="state" size="1" onblur="check_state()">
                 <option value="" selected="selected">Select Country First</option>
                 </select>
+                <div id="state" class="input-control">
+                    <div class="error"></div>
+                </div>
             </div>
-            <div class="address input-control">
-                <div class="error"></div>
-            </div>
-            
 
-            <div id="countryWrap">
+            <div>
                 <label class="form-check-label" for="cities">City</label>
-                <select id="districtSel" name="cities" size="1" onblur="check_address()" required> 
+                <select id="districtSel" name="cities" size="1" onblur="check_city()"> 
                 <option value="" selected="selected">Select State First</option>
                 </select>
-            </div>       
-            <div class="address input-control">
-                <div class="error"></div>
-            </div>     
+                <div id="city" class="input-control">
+                    <div class="error"></div>
+                </div> 
+            </div>                      
         </div>
 
         <!-- <button type="submit" class="btn btn-outline-danger">Clear</button> -->
-        <button type="submit" onclick="add()" class="btn btn-outline-success mt-4 mb-3">Save</button>
+        <button type="button" onclick="validate_from()" class="btn btn-outline-success mt-4 mb-3">Save</button>
         <button type="button" onclick="_delete()" class="btn btn-outline-danger mt-4 mb-3">Clear</button>
     </form>
+
     <div id="v"></div>
 
     </div>  

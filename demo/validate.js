@@ -15,7 +15,6 @@ $(function(){
 });
 
 const setError = (element, message) => {
-    debugger
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
 
@@ -90,27 +89,48 @@ function check_gender(){
     }
 }
 
-function check_address(){
-    var status = document.getElementById('address');
-    var country = document.getElementsByName('country');
-    var state = document.getElementsByName('state');
-    var city = document.getElementsByName('cities');
-
-    if(country.value == "" || country.value != "Select Country"){
-        setError(status, "Please select a country.")
+function check_country(){
+    var country = document.getElementById('countySel');
+    var message_country = document.getElementById("country");
+    
+    if(country.options[country.selectedIndex].value == "" || country.options[country.selectedIndex].text == "Select Country"){
+        setError(message_country, "Please select a country.")
     }else{
-        setSuccess(country)
+        setSuccess(message_country)
+    }
+}
+
+function check_state(){
+    var state = document.getElementById('stateSel');
+    var message_state = document.getElementById("state");
+
+    if(state.options[state.selectedIndex].value == "" || state.options[state.selectedIndex].text == 'Select Country First'){
+        setError(message_state, "Please Select state.(If you can not select country, then select country first.)")
+    }else{
+        setSuccess(message_state)
     }
 
-    if(state.value == '' || state.value == 'Select Country First'){
-        setError(status, "Please Select state.")
+}
+
+function check_city(){
+    var city = document.getElementById('districtSel');
+    var message_city= document.getElementById("city");
+
+    if(city.options[city.selectedIndex].value == "" || city.options[city.selectedIndex].text == 'Select State First'){
+        setError(message_city, "Please Select City.(If you can't select country or state, then select country or state first.)")
     }else{
-        setSuccess(state)
+        setSuccess(message_city)
     }
 
-    if(city.value == '' || city.value == 'Select State First'){
-        setError(status, "Please Select City.")
-    }else{
-        setSuccess(city)
-    }
+}
+
+function validate_from(){
+    check_name()
+    check_email()
+    check_birthdate()
+    check_gender()
+    check_hobby()
+    check_country()
+    check_state()
+    check_city()
 }
