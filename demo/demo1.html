@@ -48,7 +48,7 @@
                 <input class="form-radio-input" type="radio" name="gender" value="other" onblur="check_gender()">
                 <label class="form-check-label" for="inlineRadio3">Other</label>
               </div>
-              <div id='gender' class="input-control">
+              <div name='gender_message' class="input-control">
               <div class="error"></div>
               </div>
         </div>
@@ -105,8 +105,8 @@
         </div>
 
         <!-- <button type="submit" class="btn btn-outline-danger">Clear</button> -->
-        <button type="button" onclick="validate_from()" class="btn btn-outline-success mt-4 mb-3">Save</button>
-        <button type="button" onclick="_delete()" class="btn btn-outline-danger mt-4 mb-3">Clear</button>
+        <input name="save" type="button" onclick="validate_from()" class="btn btn-outline-success mt-4 mb-3" value="Save">
+        <input name="clear" type="button" onclick="_clear()" class="btn btn-outline-danger mt-4 mb-3" value="Clear">
     </form>
 
     <div id="v"></div>

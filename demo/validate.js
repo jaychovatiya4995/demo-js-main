@@ -31,7 +31,7 @@ const setSuccess = element => {
     const errorDisplay = inputControl.querySelector('.error');
 
     errorDisplay.innerText = '';
-    inputControl.classList.add('success');
+    // inputControl.classList.add('success');
     inputControl.classList.remove('error');
 };
 
@@ -95,12 +95,13 @@ function check_gender(){
     // var female = document.getElementById('female');
     // var other = document.getElementById('other');
     var gender_value= document.getElementsByName('gender');
-    
+    var message_gender = document.getElementsByName("gender_message")[0];
+
     if(!gender_value[0].checked && !gender_value[1].checked && !gender_value[2].checked){
-        setError(gender, "You must select at least one option");
+        setError(message_gender, "You must select at least one option");
         return false;
     }else{
-        setSuccess(gender);
+        setSuccess(message_gender);
         return true;
     }
 }
