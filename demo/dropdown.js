@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    const stateObject = {
+    const state_object = {
         "India": {
             "Delhi": ["new Delhi", "North Delhi"],
             "Kerala": ["Thiruvananthapuram", "Palakkad"],
@@ -16,29 +16,29 @@ $(document).ready(function () {
         },
     }
 
-    var countySel = document.getElementById("countySel"),
-        stateSel = document.getElementById("stateSel"),
-        districtSel = document.getElementById("districtSel");
+    var county_sel = document.getElementById("countySel"),
+        state_sel = document.getElementById("stateSel"),
+        district_sel = document.getElementById("districtSel");
 
-    for (var country in stateObject) {
-        countySel.options[countySel.options.length] = new Option(country, country);
+    for (var country in state_object) {
+        county_sel.options[county_sel.options.length] = new Option(country, country);
     }
     
-    countySel.onchange = function () {
-        stateSel.length = 1; // remove all options bar first
-        districtSel.length = 1; // remove all options bar first
+    county_sel.onchange = function () {
+        state_sel.length = 1; // remove all options bar first
+        district_sel.length = 1; // remove all options bar first
         if (this.selectedIndex < 1) return; // done
-        for (var state in stateObject[this.value]) {
-            stateSel.options[stateSel.options.length] = new Option(state, state);
+        for (var state in state_object[this.value]) {
+            state_sel.options[state_sel.options.length] = new Option(state, state);
         }
     }
-    countySel.onchange(); // reset in case page is reloaded
-    stateSel.onchange = function () {
-        districtSel.length = 1; // remove all options bar first
+    county_sel.onchange(); // reset in case page is reloaded
+    state_sel.onchange = function () {
+        district_sel.length = 1; // remove all options bar first
         if (this.selectedIndex < 1) return; // done
-        var district = stateObject[countySel.value][this.value];
+        var district = state_object[county_sel.value][this.value];
         for (var i = 0; i < district.length; i++) {
-            districtSel.options[districtSel.options.length] = new Option(district[i], district[i]);
+            district_sel.options[district_sel.options.length] = new Option(district[i], district[i]);
         }
     }
 

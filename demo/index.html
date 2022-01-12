@@ -19,19 +19,19 @@
         <div class="form-group input-control">
             <label for="name">Your Name</label>
             <input type="text" name="username" class="form-control" onblur="check_name()">
-            <div class="error"></div>
+            <div class="error remove"></div>
         </div>
 
         <div class="form-group input-control">
-            <label for="email">Email address</label>
+            <label for="email">Email Address</label>
             <input type="email" name="useremail" class="form-control" onblur="check_email()">
-            <div class="error"></div>
+            <div class="error remove"></div>
         </div>
 
         <div class="input-control">
             <label for="birthday">Birthdate</label>
-            <input type="date" id="txtDate" name="birthday" onblur="check_birthdate()">
-            <div class="error"></div>
+            <input type="date" class="birthdate" id="txtDate" name="birthday" onblur="check_birthdate()">
+            <div class="error remove"></div>
         </div>
 
         <div>
@@ -49,7 +49,7 @@
                 <label class="form-check-label" for="inlineRadio3">Other</label>
               </div>
               <div name='gender_message' class="input-control">
-              <div class="error"></div>
+              <div class="error remove"></div>
               </div>
         </div>
 
@@ -68,7 +68,7 @@
                 <label class="form-check-label" for="spo">Sport</label>
               </div>
               <div name='hobby_message' class="input-control">
-                <div class="error"></div>
+                <div class="error remove"></div>
               </div> 
         </div>
 
@@ -79,7 +79,7 @@
                 <option value="" selected="selected">Select Country</option>
                 </select>
                 <div name="country_message" class="input-control"> 
-                    <div class="error"></div>
+                    <div class="error remove"></div>
                 </div>
             </div>
                                  
@@ -89,7 +89,7 @@
                 <option value="" selected="selected">Select Country First</option>
                 </select>
                 <div name="state_message" class="input-control">
-                    <div class="error"></div>
+                    <div class="error remove"></div>
                 </div>
             </div>
 
@@ -99,7 +99,7 @@
                 <option value="" selected="selected">Select State First</option>
                 </select>
                 <div name="city_message" class="input-control">
-                    <div class="error"></div>
+                    <div class="error remove"></div>
                 </div> 
             </div>                      
         </div>
@@ -112,7 +112,7 @@
     <div class="continer">
         <div class="row">
             <div class="col"> 
-                <input name="search" type="text" onkeyup="search()" placeholder="Search">
+                <input name="search" type="text" onkeyup="_search()" placeholder="Search">
             </div>
             <div class="col">
                 <label class="form-check-label" for="fileter">Filter</label>
