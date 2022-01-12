@@ -41,4 +41,6 @@ $(document).ready(function () {
             districtSel.options[districtSel.options.length] = new Option(district[i], district[i]);
         }
     }
+
+    // const filter = ['Ascending','Descending']
 });

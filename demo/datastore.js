@@ -1,16 +1,6 @@
 $(document).ready(function () {
-console.log('data')
+
 show_recordes();
-
-function age_birthdate(age){
-    console.log(age)
-    age_millsecond = (age * 365 * 24 * 60 * 60)
-    console.log(age_millsecond)
-    birthdate = new Date(new Date().getTime() - age_millsecond);
-    console.log(birthdate)
-}
-
-age_birthdate(20)
 
 });
 
@@ -55,17 +45,14 @@ function show_recordes(){
    
 
 
-    var myTable= "<table class='table mt-4 table-bordered table-striped table-hover table-dark'>"; 
+    var myTable= "<table name='mytable' class='table mt-4 table-bordered table-striped table-hover table-dark'>"; 
         myTable+= "<tr>"; 
-            myTable+= "<td style='width: 100px; color: red; text-align: center;'>Name</td>";
-            myTable+="<td style='width: 100px; color: red; text-align: center;'>Email</td>";
-            myTable+="<td style='width: 100px; color: red; text-align: center;'>Age</td>";
-            myTable+="<td style='width: 100px; color: red; text-align: center;'>Gender</td>";
-            myTable+="<td style='width: 100px; color: red; text-align: center;'>Hobby</td>";
-            myTable+="<td style='width: 100px; color: red; text-align: center;'>Country</td>";
-            myTable+="<td style='width: 100px; color: red; text-align: center;'>State</td>";
-            myTable+="<td style='width: 100px; color: red; text-align: center;'>City</td>";
-            myTable+="<td style='width: 200px; color: red; text-align: center;'>Action</td>";
+        
+        header_name = ['Name','Email','Age','Gender','Hobby','Country','State','City','Action']
+            for(i=0; i < header_name.length; i++){
+            myTable+= "<td style='width: 100px; color: red; text-align: center;'>" + header_name[i] + "</td>";
+            }
+
         myTable+="</tr>";
         
     for (var key in data) {
@@ -153,7 +140,6 @@ function add(){
                     'state':state,
                     'city':city});
 
-    console.log(save_update.value)
     if(save_update.value == 'Save'){
         all_data.push(record);
     }else{
@@ -178,7 +164,11 @@ function edit(x){
     get_email = document.getElementsByName('g_email')[_rowIndex].innerText;
     document.getElementsByName('useremail')[0].value = get_email;
 
-    get_age = document.getElementsByName('g_age')[_rowIndex].innerText;
+    // get_age = document.getElementsByName('g_age')[_rowIndex].innerText;
+    // get_birthdate = document.querySelector('input[type="date"][name="birthday"]');
+    get_birthdate = all_data[_rowIndex].birthdate
+    document.querySelector('input[type="date"][name="birthday"]').value = get_birthdate;
+
     
     get_gender = document.getElementsByName('g_gender')[_rowIndex].innerText;
     gender = document.getElementsByName('gender');
@@ -209,8 +199,33 @@ function edit(x){
     document.getElementsByName('country')[0].value = get_country;
 
     get_state = document.getElementsByName('g_state')[_rowIndex].innerText;
+    countySel.onchange();
     document.getElementsByName('state')[0].value = get_state;
+    
+    // document.querySelector('select[name="state"]').value = get_state;
 
     get_city = document.getElementsByName('g_city')[_rowIndex].innerText;
+    stateSel.onchange();
     document.getElementsByName('cities')[0].value = get_city;
+}
+
+function search(){
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementsByName("search")[0];
+    filter = input.value.toUpperCase();
+    table = document.getElementById("mytable");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+        txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
 }

@@ -108,6 +108,20 @@
         <input name="save" type="button" onclick="validate_from()" class="btn btn-outline-success mt-4 mb-3" value="Save">
         <input name="clear" type="button" onclick="_clear()" class="btn btn-outline-danger mt-4 mb-3" value="Clear">
     </form>
+    <br>
+    <div class="continer">
+        <div class="row">
+            <div class="col"> 
+                <input name="search" type="text" onkeyup="search()" placeholder="Search">
+            </div>
+            <div class="col">
+                <label class="form-check-label" for="fileter">Filter</label>
+                <select id="Filtersel" name="filter" size="1"> 
+                <option value="" selected="selected">Disable</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
     <div id="v"></div>
 
